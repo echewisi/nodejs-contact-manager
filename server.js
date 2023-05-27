@@ -3,7 +3,9 @@ const dotenv= require("dotenv").config();
 
 const app= express();
 
-const port= 5000;
+const port= process.env.PORT || 5000;
+
+app.use("/api/contacts", require("./routes/ContactRoutes")); //app.use() is known as the middleware
 
 app.listen(port, ()=>{
     console.log(`server running on port ${port}`)
