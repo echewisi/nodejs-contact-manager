@@ -1,11 +1,10 @@
-// import ErrorHandler from "../middlewares/errorHandler";
-
+const asyncHandler= require(express-async-handler)
 //@desc GET all contacts
 //@route GET /api/contacts
 //@access public
-const getContacts= async(req, res)=> {
+const getContacts= asyncHandler(async(req, res)=> {
     res.status(200).json("get all contacts"); 
-};
+});
 
 //@desc GET a contact
 //@route GET /api/contacts/:id

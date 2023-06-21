@@ -1,4 +1,4 @@
-const {clientConstants, serverConstants}= require("../constants")
+const {clientConstants, serverConstants}= require("../constants");
 const ErrorHandler= (error, req, res, next)=>{
     const status= res.status ? res.status: 500;
     switch(status){
