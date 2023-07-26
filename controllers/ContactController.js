@@ -55,14 +55,20 @@ const updateContact= asyncHandler(async(req, res)=>{
         req.body,
         {new: true}
     )
-    res.status(200).json({ message: `update contact ${req.params.id}`}); 
+    res.status(200).json({ message: `update contact ${updatedConstant}`}); 
 })
 
 //@desc delete/DELETE a contact
 //@route  DELETE /api/contacts/delete.:id
 //@access public
 const deleteContact= asyncHandler(async(req, res)=>{
-    res.status(200).json( { message: `delete contact ${req.params.id}`}); 
+    const contact= await Contact.findById(req.params.id);
+    if(!contact){
+        res.status(404);
+        throw new Error('contact not found');
+    }
+    await Contact.remove()
+    res.status(200).json( { message: `delete contact ${Contact}`}); 
 })
 
 
